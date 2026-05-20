@@ -1,0 +1,204 @@
+import React, { useState, useRef } from "react";
+import * as XLSX from "xlsx";
+import { UploadCloud, TriangleAlert, Database, Bird, Bug, Cat, Turtle, Fish, Leaf, Rabbit, Snail, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "motion/react";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+
+interface AnimalData {
+  Especie: string;
+  Bioma: string;
+  Risco: string;
+  K: number;
+  PopAtual: number;
+}
+
+export function Animals() {
+  const [animals, setAnimals] = useState<AnimalData[]>([
+    { Especie: "Plantas", Bioma: "Terrestre", Risco: "Ameaçado", K: 4617, PopAtual: 2113 },
+    { Especie: "Mamíferos", Bioma: "Diversos", Risco: "Ameaçado", K: 732, PopAtual: 110 },
+    { Especie: "Aves", Bioma: "Aéreo/Terrestre", Risco: "Ameaçado", K: 1979, PopAtual: 236 },
+    { Especie: "Répteis", Bioma: "Diversos", Risco: "Ameaçado", K: 732, PopAtual: 80 },
+    { Especie: "Peixes Água Doce", Bioma: "Rios e Lagos", Risco: "Ameaçado", K: 3148, PopAtual: 312 },
+    { Especie: "Invertebrados", Bioma: "Diversos", Risco: "Ameaçado", K: 3332, PopAtual: 299 },
+    { Especie: "Peixes Marinhos", Bioma: "Oceano", Risco: "Ameaçado", K: 1358, PopAtual: 98 },
+    { Especie: "Anfíbios", Bioma: "Úmidos", Risco: "Ameaçado", K: 973, PopAtual: 41 },
+  ]);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const data = new Uint8Array(event.target?.result as ArrayBuffer);
+      const workbook = XLSX.read(data, { type: "array" });
+      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+      const parsedData = XLSX.utils.sheet_to_json<AnimalData>(firstSheet);
+      if (parsedData && parsedData.length > 0) {
+        setAnimals(parsedData);
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
+  const getWedgeColor = (index: number) => {
+    const colors = ["#60c5a8", "#ffd700", "#b57edc", "#f0567a", "#42b9d3", "#7ac142", "#5494cc", "#f16a30"];
+    return colors[index % colors.length];
+  };
+
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (sliderRef.current) {
+      const scrollAmount = direction === "left" ? -400 : 400;
+      sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const getRandomIcon = (index: number, especie: string = "") => {
+    let Selected = Bird;
+    const name = especie ? especie.toLowerCase() : "";
+    
+    if (name.includes("planta") || name.includes("flora")) Selected = Leaf;
+    else if (name.includes("mamífero") || name.includes("onça") || name.includes("mico")) Selected = Rabbit;
+    else if (name.includes("ave") || name.includes("arara")) Selected = Bird;
+    else if (name.includes("réptil") || name.includes("tartaruga")) Selected = Turtle;
+    else if (name.includes("peixe")) Selected = Fish;
+    else if (name.includes("invertebrado") || name.includes("inseto")) Selected = Bug;
+    else if (name.includes("anfíbio") || name.includes("sapo")) Selected = Snail;
+    else {
+      const icons = [Cat, Bird, Turtle, Bug, Fish, Rabbit, Snail, Leaf];
+      Selected = icons[index % icons.length];
+    }
+    
+    return <Selected className="w-32 h-32 text-neutral-900 fill-neutral-900 stroke-none" style={{ filter: "drop-shadow(0px 4px 10px rgba(0,0,0,0.15))" }} />;
+  };
+
+  return (
+    <section id="animals" className="bg-[#f5f5f5] py-24 px-4 md:px-10 border-b-[8px] border-[#dfee53] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
+          <div className="text-center md:text-left flex items-center gap-6">
+            <div className="bg-[#e52026] text-white p-6 rounded-full w-48 h-48 shrink-0 flex items-center justify-center text-center shadow-xl transform -rotate-6 border-4 border-dashed border-white ring-8 ring-[#e52026]">
+                <h2 className="text-2xl font-display uppercase tracking-tight leading-[1.1]">
+                  A Situação <br/>das Espécies <br/> Brasileiras
+                </h2>
+            </div>
+            <div className="hidden md:block">
+              <p className="font-sans font-bold text-neutral-600 outline-none text-xl mt-2 max-w-md">
+                Gráficos comparando a População Atual (em perigo) com a Capacidade total do Bioma.
+              </p>
+            </div>
+          </div>
+          
+          <label className="cursor-pointer bg-[#dfee53] hover:bg-[#c9d846] text-[#084c20] font-display text-xl py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl uppercase tracking-wide">
+            <UploadCloud className="w-6 h-6" />
+            <span>Importar Dados</span>
+            <input 
+              type="file" 
+              accept=".xlsx,.xls,.csv" 
+              onChange={handleFileUpload} 
+              className="hidden" 
+            />
+          </label>
+        </div>
+
+        <div className="relative mt-8 w-full group/slider">
+          <button 
+            onClick={() => scroll("left")}
+            className="hidden md:flex absolute -left-8 top-[35%] -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-xl items-center justify-center z-20 text-[#e52026] opacity-0 group-hover/slider:opacity-100 hover:scale-110 transition-all focus:outline-none border border-neutral-100"
+          >
+            <ChevronLeft className="w-10 h-10 -ml-1" />
+          </button>
+          
+          <button 
+            onClick={() => scroll("right")}
+            className="hidden md:flex absolute -right-8 top-[35%] -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-xl items-center justify-center z-20 text-[#e52026] opacity-0 group-hover/slider:opacity-100 hover:scale-110 transition-all focus:outline-none border border-neutral-100"
+          >
+            <ChevronRight className="w-10 h-10 ml-1" />
+          </button>
+
+          <style>{`
+            .hide-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+          
+          <div 
+            ref={sliderRef}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-16 md:gap-24 pb-12 pt-4 px-4 scroll-smooth hide-scrollbar w-full"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {animals.map((animal, i) => {
+              const chartData = [
+              { name: "População Atual", value: animal.PopAtual || 0 },
+              { name: "Margem Restante", value: Math.max(0, (animal.K || 0) - (animal.PopAtual || 0)) }
+            ];
+            const wedgeColor = getWedgeColor(i);
+
+            return (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, ease: "easeOut" }}
+                key={i} 
+                className="flex flex-col items-center justify-center text-center group min-w-[280px] md:min-w-[320px] snap-center shrink-0"
+              >
+                <div className="relative w-48 h-48 flex items-center justify-center mb-6">
+                  <div className="absolute inset-0 bg-[#e5e5e5] rounded-full scale-90" />
+                  
+                  <div className="absolute inset-0 z-0">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={chartData}
+                          cx="50%"
+                          cy="50%"
+                          startAngle={90}
+                          endAngle={-270}
+                          innerRadius={0}
+                          outerRadius="90%"
+                          dataKey="value"
+                          stroke="none"
+                          isAnimationActive={true}
+                        >
+                          <Cell fill={wedgeColor} fillOpacity={0.9} />
+                          <Cell fill="transparent" />
+                        </Pie>
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
+
+                  <div className="absolute inset-0 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                     {getRandomIcon(i, animal.Especie)}
+                  </div>
+                </div>
+
+                <div className="mt-2 text-center flex flex-col items-center">
+                  <h3 className="font-display font-medium text-2xl text-[#e52026] uppercase tracking-normal mb-3">
+                    {animal.Especie}
+                  </h3>
+                  <div className="font-sans text-neutral-800 text-lg leading-snug uppercase font-medium">
+                    {animal.K} avaliados<br />
+                    <span className="text-[#e52026] font-bold">{animal.PopAtual} ameaçados</span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+          
+          {animals.length === 0 && (
+            <div className="w-full py-20 flex flex-col items-center">
+               <div className="w-24 h-24 bg-neutral-200 rounded-full flex items-center justify-center mb-6">
+                 <Database className="w-12 h-12 text-neutral-400" />
+               </div>
+               <p className="text-neutral-500 font-display text-4xl uppercase tracking-wide">Nenhum dado informado.</p>
+            </div>
+          )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
