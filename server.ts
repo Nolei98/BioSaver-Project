@@ -1,3 +1,4 @@
+import fs from "fs";
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
@@ -72,7 +73,7 @@ async function startServer() {
 Forneça os cálculos exatos baseados nas diretrizes "EcoCalc Engine".`;
 
       const response = await ai.models.generateContent({
-        model: "gemini-2.5-pro",
+        model: "gemini-2.5-flash",
         contents: prompt,
         config: {
           systemInstruction: SYSTEM_INSTRUCTION,
@@ -83,6 +84,7 @@ Forneça os cálculos exatos baseados nas diretrizes "EcoCalc Engine".`;
       res.json({ result: response.text });
     } catch (error: any) {
       console.error("Simulation error:", error);
+      fs.writeFileSync('last_error.log', error.stack || error.toString());
       res.status(500).json({ error: "Falha na simulação. Verifique os logs para mais detalhes." });
     }
   });

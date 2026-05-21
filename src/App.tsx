@@ -5,6 +5,7 @@ import { Gallery } from "./components/Gallery";
 import { MathExplanation } from "./components/MathExplanation";
 import { Calculator } from "./components/Calculator";
 import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <MathExplanation />
       <Calculator />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
