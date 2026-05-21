@@ -138,15 +138,15 @@ export function Animals() {
 
             return (
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, ease: "easeOut" }}
                 key={i} 
-                className="flex flex-col items-center justify-center text-center group min-w-[280px] md:min-w-[320px] snap-center shrink-0"
+                className="flex flex-col items-center justify-center text-center group min-w-[280px] md:min-w-[320px] snap-center shrink-0 bg-white shadow-xl rounded-[2.5rem] p-8 border-4 border-transparent hover:border-[#dfee53] transition-all duration-300"
               >
-                <div className="relative w-48 h-48 flex items-center justify-center mb-6">
-                  <div className="absolute inset-0 bg-[#e5e5e5] rounded-full scale-90" />
+                <div className="relative w-44 h-44 flex items-center justify-center mb-8">
+                  <div className="absolute inset-0 bg-neutral-100/80 rounded-full scale-100 border-8 border-white shadow-inner" />
                   
                   <div className="absolute inset-0 z-0">
                     <ResponsiveContainer width="100%" height="100%">
@@ -158,7 +158,7 @@ export function Animals() {
                           startAngle={90}
                           endAngle={-270}
                           innerRadius={0}
-                          outerRadius="90%"
+                          outerRadius="95%"
                           dataKey="value"
                           stroke="none"
                           isAnimationActive={true}
@@ -170,18 +170,19 @@ export function Animals() {
                     </ResponsiveContainer>
                   </div>
 
-                  <div className="absolute inset-0 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="absolute inset-0 z-10 flex items-center justify-center group-hover:scale-[1.15] transition-transform duration-500 will-change-transform">
                      {getRandomIcon(i, animal.Especie)}
                   </div>
                 </div>
 
-                <div className="mt-2 text-center flex flex-col items-center">
-                  <h3 className="font-display font-medium text-2xl text-[#e52026] uppercase tracking-normal mb-3">
+                <div className="mt-2 w-full text-center flex flex-col items-center bg-neutral-50 p-4 rounded-3xl border border-neutral-100">
+                  <h3 className="font-display font-bold text-2xl text-[#1e4a86] uppercase tracking-wider mb-3 w-full border-b-2 border-neutral-200 pb-2">
                     {animal.Especie}
                   </h3>
-                  <div className="font-sans text-neutral-800 text-lg leading-snug uppercase font-medium">
-                    {animal.K} avaliados<br />
-                    <span className="text-[#e52026] font-bold">{animal.PopAtual} ameaçados</span>
+                  <div className="font-sans text-neutral-800 text-lg leading-snug uppercase font-medium flex flex-col gap-1">
+                    <span className="text-[#088c34] font-black tracking-wide">{animal.K} AVALIADOS</span>
+                    <span className="text-sm text-neutral-400">vs</span>
+                    <span className="text-[#e52026] font-black tracking-wide">{animal.PopAtual} AMEAÇADOS</span>
                   </div>
                 </div>
               </motion.div>

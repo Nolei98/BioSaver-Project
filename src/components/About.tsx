@@ -4,35 +4,35 @@ import { motion } from "motion/react";
 export function About() {
   return (
     <section id="about" className="w-full flex flex-col overflow-hidden">
-      <div className="bg-[#1e4a86] w-full flex flex-col md:flex-row items-center py-10 px-4 md:px-10 gap-8 h-auto">
+      <div className="bg-[#1e4a86] w-full flex flex-col items-center justify-center py-12 px-4 md:px-10 gap-8 h-auto text-center">
          <motion.div
            initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
            whileInView={{ rotate: 0, opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ type: "spring", bounce: 0.5, duration: 1 }}
          >
-           <Globe2 className="w-40 h-40 md:w-64 md:h-64 text-[#94b1d6] shrink-0" />
+           <Globe2 className="w-40 h-40 md:w-56 md:h-56 text-[#94b1d6] shrink-0" />
          </motion.div>
-         <div className="flex-1 text-white">
+         <div className="text-white max-w-4xl mx-auto">
             <motion.h2 
-              initial={{ x: 100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", damping: 12, stiffness: 100 }}
-              className="text-3xl md:text-5xl font-display uppercase leading-tight"
+              className="text-3xl md:text-5xl font-display uppercase leading-tight flex flex-col items-center"
             >
-               O PROJETO BIOSAVER É A <br/>
-               <span className="text-4xl md:text-6xl align-middle">MAIOR ESPERANÇA</span>
+               <span>O PROJETO BIOSAVER É A</span>
+               <span className="text-4xl md:text-6xl align-middle mt-2">MAIOR ESPERANÇA</span>
                <motion.span 
                  initial={{ scale: 0 }}
                  whileInView={{ scale: 1 }}
                  viewport={{ once: true }}
                  transition={{ delay: 0.3, type: "spring", bounce: 0.6 }}
-                 className="inline-block md:ml-4 text-base md:text-xl font-sans font-bold bg-[#153461] text-[#94b1d6] px-4 py-2 mt-4 md:mt-0 align-middle normal-case rounded-lg shadow-sm"
+                 className="inline-block text-base md:text-xl font-sans font-bold bg-[#153461] text-[#94b1d6] px-4 py-2 mt-4 align-middle normal-case rounded-lg shadow-sm"
                >
                   *perde apenas para o instinto da própria natureza.
-               </motion.span><br className="hidden md:block" />
-               <span className="mt-4 md:mt-0 inline-block">LÓGICA E PRECISA</span>
+               </motion.span>
+               <span className="mt-4 md:mt-6 inline-block">LÓGICA E PRECISA</span>
             </motion.h2>
          </div>
       </div>
