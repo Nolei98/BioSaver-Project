@@ -1,9 +1,30 @@
 import { Globe2 } from "lucide-react";
+import { motion } from "motion/react";
 
 export function Footer() {
   return (
     <footer className="bg-[#054a1a] text-center pt-16 border-t-[8px] border-b-[8px] border-[#dfee53] pb-16 px-4 flex flex-col items-center justify-center">
-      <Globe2 className="w-16 h-16 text-[#dfee53] mb-4 stroke-[1.5]" />
+      <motion.div
+        className="relative"
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <motion.img 
+          src="https://i.imgur.com/M5tnTxI.png" 
+          alt="BioSaver Logo" 
+          className="w-24 h-24 mb-4 object-contain relative z-10" 
+          referrerPolicy="no-referrer" 
+          animate={{ 
+            filter: [
+              "drop-shadow(0px 0px 0px rgba(223,238,83,0)) brightness(1)", 
+              "drop-shadow(0px 0px 20px rgba(223,238,83,0.6)) brightness(1.2)", 
+              "drop-shadow(0px 0px 0px rgba(223,238,83,0)) brightness(1)"
+            ] 
+          }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", repeatDelay: 1.5 }}
+        />
+      </motion.div>
       <h1 className="font-display text-5xl md:text-6xl text-[#dfee53] uppercase tracking-normal mb-8">
         Projeto<br/>BioSaver
       </h1>
