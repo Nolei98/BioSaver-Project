@@ -42,7 +42,13 @@ export function Gallery() {
   ];
 
   return (
-    <section className="bg-[#1e4a86] py-24 md:py-48 px-4 relative">
+    <section className="bg-[#102c5c] pt-24 md:pt-48 pb-24 md:pb-52 px-4 relative mb-[10px]">
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none transform -translate-y-[99%] z-20 pointer-events-none">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[100px] fill-[#102c5c]">
+          <path d="M0,120 V40 L15,60 L25,30 L40,70 L60,20 L80,80 L100,40 L115,65 L140,25 L160,75 L180,35 L200,90 L220,20 L245,75 L260,30 L285,85 L310,25 L330,70 L350,15 L375,65 L390,30 L415,90 L435,35 L460,80 L485,25 L510,75 L535,30 L560,90 L580,20 L605,75 L620,35 L645,90 L665,25 L690,70 L710,15 L735,65 L760,30 L785,85 L810,25 L830,70 L850,20 L875,75 L890,30 L915,90 L935,35 L960,80 L985,25 L1010,75 L1035,30 L1060,90 L1080,20 L1105,75 L1120,35 L1145,90 L1165,25 L1190,70 L1200,40 V120 Z" />
+        </svg>
+      </div>
+
       {/* Background Decor */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[#153461] opacity-50 mix-blend-multiply" />

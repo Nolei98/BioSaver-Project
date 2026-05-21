@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 export function MathExplanation() {
   return (
-    <section id="math" className="bg-white py-24 border-b-[12px] border-[#084c20] relative overflow-hidden">
+    <section id="math" className="bg-white py-24 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/mathematics.png')" }} />
       <div className="max-w-6xl mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center gap-16 relative z-10">
         
