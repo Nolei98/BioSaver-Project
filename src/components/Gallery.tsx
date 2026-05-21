@@ -3,39 +3,40 @@ import { motion } from "motion/react";
 export function Gallery() {
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1552728089-57458cb51ad1?auto=format&fit=crop&q=80&w=800",
+      src: "https://i1-e.pinimg.com/736x/e3/23/a1/e323a1cd62fa02c4df2b287357e867d0.jpg",
       alt: "Arara Azul",
-      className: "w-[80%] md:w-[60%] lg:w-[40%] aspect-[4/3] -rotate-6 md:absolute md:top-20 md:left-10 z-20",
+      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-6 md:absolute md:top-10 md:left-10 z-20",
+      imageClass: "object-top"
     },
     {
-      src: "https://images.unsplash.com/photo-1602491453631-b2b512c1b898?auto=format&fit=crop&q=80&w=800",
+      src: "https://i1-e.pinimg.com/1200x/0e/cc/c2/0eccc24d7071200527f83ad205431444.jpg",
       alt: "Onça Pintada",
-      className: "w-[90%] md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-40 md:right-10 z-30",
+      className: "w-[90%] md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-24 md:right-10 z-30",
     },
     {
-      src: "https://images.unsplash.com/photo-1541812833118-2e06180fc5cd?auto=format&fit=crop&q=80&w=800",
+      src: "https://i1-e.pinimg.com/1200x/60/87/ae/6087aec3695d597bb1b2ca25a172b16d.jpg",
       alt: "Mico Leão Dourado",
-      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-12 md:absolute md:bottom-20 md:left-[15%] z-40",
+      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-12 md:absolute md:bottom-10 md:left-[15%] z-40",
     },
     {
-      src: "https://images.unsplash.com/photo-1519782570087-c0e7ed815f90?auto=format&fit=crop&q=80&w=800",
+      src: "https://i.pinimg.com/736x/46/b7/84/46b784e843894f14c7fcd5be85e9d758.jpg",
       alt: "Tartaruga Marinha",
-      className: "w-[85%] md:w-[45%] lg:w-[35%] aspect-[16/9] rotate-6 md:absolute md:bottom-10 md:right-1/4 z-10",
+      className: "w-[85%] md:w-[45%] lg:w-[35%] aspect-[16/9] rotate-6 md:absolute md:bottom-16 md:right-[20%] z-10",
     },
     {
-      src: "https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&q=80&w=800",
+      src: "https://i.pinimg.com/736x/75/7b/cb/757bcbdd423291a4c342128bced480ac.jpg",
       alt: "Tucano",
-      className: "w-[75%] md:w-[40%] lg:w-[25%] aspect-square -rotate-6 md:absolute md:-bottom-10 md:-right-10 z-30",
+      className: "w-[75%] md:w-[40%] lg:w-[25%] aspect-square -rotate-6 md:absolute md:-bottom-5 md:right-5 z-30",
     },
     {
-      src: "https://images.unsplash.com/photo-1627883259837-7756f7e411b9?auto=format&fit=crop&q=80&w=800",
+      src: "https://i1-e.pinimg.com/1200x/e8/8f/c6/e88fc6343dc1efefc10b440e4b1781a0.jpg",
       alt: "Sagui",
-      className: "w-[75%] md:w-[30%] lg:w-[20%] aspect-[3/4] rotate-12 md:absolute md:top-[60%] md:left-[5%] z-50",
+      className: "w-[60%] md:w-[25%] lg:w-[15%] aspect-[3/4] rotate-12 md:absolute md:-top-10 md:-left-10 z-50",
     },
     {
-      src: "https://images.unsplash.com/photo-1595133379669-e77a2eaabe09?auto=format&fit=crop&q=80&w=800",
+      src: "https://i1-e.pinimg.com/736x/ce/16/3e/ce163e071643f155a7c2b235a525e2d8.jpg",
       alt: "Lobo Guará",
-      className: "w-[85%] md:w-[35%] lg:w-[25%] aspect-[3/4] -rotate-3 md:absolute md:top-10 md:right-1/3 z-0",
+      className: "w-[85%] md:w-[35%] lg:w-[25%] aspect-[3/4] -rotate-3 md:absolute md:top-10 md:right-[35%] z-0",
     }
   ];
 
@@ -69,7 +70,7 @@ export function Gallery() {
               <img 
                 src={img.src} 
                 alt={img.alt} 
-                className="w-full h-full object-cover rounded-3xl shadow-2xl border-8 border-white/90"
+                className={`w-full h-full object-cover rounded-3xl shadow-2xl border-8 border-white/90 ${img.imageClass || 'object-center'}`}
               />
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white text-[#1e4a86] px-6 py-2 rounded-full font-display uppercase tracking-wider text-sm whitespace-nowrap shadow-xl">
                 {img.alt}
