@@ -5,17 +5,17 @@ export function Gallery() {
     {
       src: "https://images.unsplash.com/photo-1552728089-57458cb51ad1?auto=format&fit=crop&q=80&w=800",
       alt: "Arara Azul",
-      className: "w-[80%] md:w-[60%] lg:w-[40%] aspect-[4/3] -rotate-6 md:absolute md:top-20 md:left-10 z-10",
+      className: "w-[80%] md:w-[60%] lg:w-[40%] aspect-[4/3] -rotate-6 md:absolute md:top-20 md:left-10 z-20",
     },
     {
       src: "https://images.unsplash.com/photo-1602491453631-b2b512c1b898?auto=format&fit=crop&q=80&w=800",
       alt: "Onça Pintada",
-      className: "w-[90%] md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-40 md:right-10 z-20",
+      className: "w-[90%] md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-40 md:right-10 z-30",
     },
     {
       src: "https://images.unsplash.com/photo-1541812833118-2e06180fc5cd?auto=format&fit=crop&q=80&w=800",
       alt: "Mico Leão Dourado",
-      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-12 md:absolute md:bottom-20 md:left-1/4 z-30",
+      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-12 md:absolute md:bottom-20 md:left-[15%] z-40",
     },
     {
       src: "https://images.unsplash.com/photo-1519782570087-c0e7ed815f90?auto=format&fit=crop&q=80&w=800",
@@ -26,6 +26,16 @@ export function Gallery() {
       src: "https://images.unsplash.com/photo-1456926631375-92c8ce872def?auto=format&fit=crop&q=80&w=800",
       alt: "Tucano",
       className: "w-[75%] md:w-[40%] lg:w-[25%] aspect-square -rotate-6 md:absolute md:-bottom-10 md:-right-10 z-30",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1627883259837-7756f7e411b9?auto=format&fit=crop&q=80&w=800",
+      alt: "Sagui",
+      className: "w-[75%] md:w-[30%] lg:w-[20%] aspect-[3/4] rotate-12 md:absolute md:top-[60%] md:left-[5%] z-50",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1595133379669-e77a2eaabe09?auto=format&fit=crop&q=80&w=800",
+      alt: "Lobo Guará",
+      className: "w-[85%] md:w-[35%] lg:w-[25%] aspect-[3/4] -rotate-3 md:absolute md:top-10 md:right-1/3 z-0",
     }
   ];
 
@@ -35,7 +45,7 @@ export function Gallery() {
       <div className="absolute inset-0 bg-[#153461] opacity-50 mix-blend-multiply pointer-events-none" />
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1b437e] transform skew-x-12 translate-x-10 opacity-30" />
       
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center relative md:h-[600px] z-10">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center relative md:h-[750px] z-10">
         
         <div className="text-center md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-40 bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[3rem] border border-white/20 shadow-2xl">
           <h2 className="text-5xl md:text-7xl font-display text-white uppercase tracking-tight mb-4">

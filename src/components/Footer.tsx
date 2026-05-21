@@ -12,7 +12,7 @@ export function Footer() {
          <div className="absolute top-0 right-0 w-32 h-32 bg-[#dfee53]/10 transform rotate-45 translate-x-10 -translate-y-10 rounded-3xl pointer-events-none" />
          
          <h2 className="font-display text-2xl md:text-3xl text-[#dfee53] uppercase tracking-wide mb-1 relative z-10">
-           Projeto de Cálculo 2
+           Capstone - Cálculo 2
          </h2>
          <p className="font-sans font-bold text-white text-lg md:text-xl opacity-90 mb-6 relative z-10">
            Cohort 0725 - Jala University
