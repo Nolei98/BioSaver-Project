@@ -15,7 +15,7 @@ export function Footer() {
            Projeto de Cálculo 2
          </h2>
          <p className="font-sans font-bold text-white text-lg md:text-xl opacity-90 mb-6 relative z-10">
-           Turma do Cohort 0725 da Jala University
+           Cohort 0725 - Jala University
          </p>
          
          <div className="flex flex-wrap justify-center gap-3 relative z-10">
