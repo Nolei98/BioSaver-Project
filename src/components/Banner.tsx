@@ -5,7 +5,7 @@ export function Banner() {
   return (
     <section className="relative w-full bg-[#dfee53] flex flex-col items-center text-center pt-16 pb-12 border-b-[12px] border-[#1e4a86]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full relative">
-        <div className="flex items-center justify-center gap-4 mb-6">
+        <div className="flex items-center justify-center gap-4 mb-6 relative z-10">
           <motion.div
             animate={{ y: [0, -15, 0], rotate: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

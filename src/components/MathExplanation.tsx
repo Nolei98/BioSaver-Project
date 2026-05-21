@@ -3,8 +3,9 @@ import { motion } from "motion/react";
 
 export function MathExplanation() {
   return (
-    <section id="math" className="bg-white py-24 border-b-[12px] border-[#084c20]">
-      <div className="max-w-6xl mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center gap-16">
+    <section id="math" className="bg-white py-24 border-b-[12px] border-[#084c20] relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/mathematics.png')" }} />
+      <div className="max-w-6xl mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center gap-16 relative z-10">
         
         <div className="md:w-1/3 flex justify-center relative">
             <div className="bg-[#e52026] text-white p-10 rounded-full flex items-center justify-center w-full aspect-square shadow-xl transform -rotate-3 text-center border-4 border-dashed border-white ring-8 ring-[#e52026] z-10">

@@ -76,6 +76,7 @@ export function Animals() {
 
   return (
     <section id="animals" className="bg-[#f5f5f5] py-24 px-4 md:px-10 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/clean-textile.png')" }} />
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-16 w-full">
           <div className="text-center md:text-left flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -103,23 +104,17 @@ export function Animals() {
           </label>
         </div>
 
-        <div className="relative mt-8 w-full group/slider border-8 border-dashed border-[#084c20] bg-white rounded-3xl p-4 md:p-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\\'20\\' height=\\'20\\' viewBox=\\'0 0 20 20\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%23084c20\\' fill-opacity=\\'1\\' fill-rule=\\'evenodd\\'%3E%3Ccircle cx=\\'3\\' cy=\\'3\\' r=\\'3\\'/%3E%3Ccircle cx=\\'13\\' cy=\\'13\\' r=\\'3\\'/%3E%3C/g%3E%3C/svg%3E')" }} />
-          
+        <div className="relative mt-8 w-full group/slider flex items-center justify-center">
           <button 
             onClick={() => scroll("left")}
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 w-16 h-16 bg-[#084c20] rounded-full shadow-xl items-center justify-center z-20 text-white opacity-0 group-hover/slider:opacity-100 hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-[#dfee53] border-4 border-white"
+            className="hidden md:flex shrink-0 w-20 h-20 mr-6 -ml-16 bg-[#dfee53] rounded-full shadow-2xl items-center justify-center z-30 text-[#084c20] hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-white border-4 border-[#084c20]"
           >
-            <ChevronLeft className="w-10 h-10 -ml-1" />
-          </button>
-          
-          <button 
-            onClick={() => scroll("right")}
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 w-16 h-16 bg-[#084c20] rounded-full shadow-xl items-center justify-center z-20 text-white opacity-0 group-hover/slider:opacity-100 hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-[#dfee53] border-4 border-white"
-          >
-            <ChevronRight className="w-10 h-10 ml-1" />
+            <ChevronLeft className="w-12 h-12 -ml-1" />
           </button>
 
+          <div className="flex-1 w-full border-8 border-dashed border-[#084c20] bg-white rounded-3xl p-4 md:p-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\\'20\\' height=\\'20\\' viewBox=\\'0 0 20 20\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%23084c20\\' fill-opacity=\\'1\\' fill-rule=\\'evenodd\\'%3E%3Ccircle cx=\\'3\\' cy=\\'3\\' r=\\'3\\'/%3E%3Ccircle cx=\\'13\\' cy=\\'13\\' r=\\'3\\'/%3E%3C/g%3E%3C/svg%3E')" }} />
+          
           <style>{`
             .hide-scrollbar::-webkit-scrollbar {
               display: none;
@@ -200,6 +195,14 @@ export function Animals() {
             </div>
           )}
           </div>
+          </div>
+          
+          <button 
+            onClick={() => scroll("right")}
+            className="hidden md:flex shrink-0 w-20 h-20 ml-6 -mr-16 bg-[#dfee53] rounded-full shadow-2xl items-center justify-center z-30 text-[#084c20] hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-white border-4 border-[#084c20]"
+          >
+            <ChevronRight className="w-12 h-12 ml-1" />
+          </button>
         </div>
       </div>
     </section>

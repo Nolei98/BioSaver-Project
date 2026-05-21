@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 export function Footer() {
   return (
-    <footer className="relative z-50 bg-[#054a1a] text-center pt-16 border-t-[16px] border-[#dfee53] pb-16 px-4 flex flex-col items-center justify-center">
+    <footer className="relative z-50 bg-[#054a1a] text-center pt-16 border-t-[10px] border-[#dfee53] pb-16 px-4 flex flex-col items-center justify-center">
       <motion.div
         className="relative"
         initial={{ scale: 0.8, opacity: 0 }}
