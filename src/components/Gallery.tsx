@@ -5,38 +5,38 @@ export function Gallery() {
     {
       src: "https://i1-e.pinimg.com/736x/e3/23/a1/e323a1cd62fa02c4df2b287357e867d0.jpg",
       alt: "Arara Azul",
-      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-6 md:absolute md:top-10 md:left-10 z-20",
+      className: "w-[85%] max-w-[280px] md:max-w-none md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-6 md:absolute md:top-10 md:left-10 z-20",
       imageClass: "object-top"
     },
     {
       src: "https://i1-e.pinimg.com/1200x/0e/cc/c2/0eccc24d7071200527f83ad205431444.jpg",
       alt: "Onça Pintada",
-      className: "w-[90%] md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-24 md:right-10 z-30",
+      className: "w-[90%] max-w-[320px] md:max-w-none md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-24 md:right-10 z-30",
     },
     {
       src: "https://i1-e.pinimg.com/1200x/60/87/ae/6087aec3695d597bb1b2ca25a172b16d.jpg",
       alt: "Mico Leão Dourado",
-      className: "w-[70%] md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-12 md:absolute md:bottom-10 md:left-[15%] z-40",
+      className: "w-[80%] max-w-[260px] md:max-w-none md:w-[40%] lg:w-[28%] aspect-[3/4] -rotate-12 md:absolute md:bottom-20 md:left-4 z-20",
     },
     {
       src: "https://i.pinimg.com/736x/46/b7/84/46b784e843894f14c7fcd5be85e9d758.jpg",
       alt: "Tartaruga Marinha",
-      className: "w-[85%] md:w-[45%] lg:w-[35%] aspect-[16/9] rotate-6 md:absolute md:bottom-16 md:right-[20%] z-10",
+      className: "w-[95%] max-w-[340px] md:max-w-none md:w-[45%] lg:w-[32%] aspect-[16/9] rotate-6 md:absolute md:bottom-44 md:right-[38%] z-10",
     },
     {
       src: "https://i.pinimg.com/736x/75/7b/cb/757bcbdd423291a4c342128bced480ac.jpg",
       alt: "Tucano",
-      className: "w-[75%] md:w-[40%] lg:w-[25%] aspect-square -rotate-6 md:absolute md:-bottom-5 md:right-5 z-30",
+      className: "w-[85%] max-w-[310px] md:max-w-none md:w-[42%] lg:w-[28%] aspect-square -rotate-6 md:absolute md:bottom-5 md:right-12 z-30",
     },
     {
       src: "https://i1-e.pinimg.com/1200x/e8/8f/c6/e88fc6343dc1efefc10b440e4b1781a0.jpg",
       alt: "Sagui",
-      className: "w-[60%] md:w-[25%] lg:w-[15%] aspect-[3/4] rotate-12 md:absolute md:-top-10 md:-left-10 z-50",
+      className: "w-[75%] max-w-[220px] md:max-w-none md:w-[25%] lg:w-[15%] aspect-[3/4] rotate-12 md:absolute md:-top-10 md:-left-10 z-50",
     },
     {
       src: "https://i1-e.pinimg.com/736x/ce/16/3e/ce163e071643f155a7c2b235a525e2d8.jpg",
       alt: "Lobo Guará",
-      className: "w-[85%] md:w-[35%] lg:w-[25%] aspect-[3/4] -rotate-3 md:absolute md:top-10 md:right-[35%] z-0",
+      className: "w-[90%] max-w-[300px] md:max-w-none md:w-[35%] lg:w-[25%] aspect-[3/4] -rotate-3 md:absolute md:top-10 md:right-[40%] z-0",
     }
   ];
 
