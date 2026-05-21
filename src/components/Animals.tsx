@@ -71,27 +71,27 @@ export function Animals() {
       Selected = icons[index % icons.length];
     }
     
-    return <Selected className="w-32 h-32 text-neutral-900 fill-neutral-900 stroke-none" style={{ filter: "drop-shadow(0px 4px 10px rgba(0,0,0,0.15))" }} />;
+    return <Selected className="w-40 h-40 text-neutral-900 fill-neutral-900 stroke-none" style={{ filter: "drop-shadow(0px 4px 10px rgba(0,0,0,0.15))" }} />;
   };
 
   return (
     <section id="animals" className="bg-[#f5f5f5] py-24 px-4 md:px-10 border-b-[8px] border-[#dfee53] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
-          <div className="text-center md:text-left flex items-center gap-6">
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-16 w-full">
+          <div className="text-center md:text-left flex flex-col md:flex-row items-center gap-6 md:gap-10">
             <div className="bg-[#e52026] text-white p-6 rounded-full w-48 h-48 shrink-0 flex items-center justify-center text-center shadow-xl transform -rotate-6 border-4 border-dashed border-white ring-8 ring-[#e52026]">
                 <h2 className="text-2xl font-display uppercase tracking-tight leading-[1.1]">
                   A Situação <br/>das Espécies <br/> Brasileiras
                 </h2>
             </div>
             <div className="hidden md:block">
-              <p className="font-sans font-bold text-neutral-600 outline-none text-xl mt-2 max-w-md">
+              <p className="font-sans font-bold text-neutral-600 outline-none text-xl max-w-sm">
                 Gráficos comparando a População Atual (em perigo) com a Capacidade total do Bioma.
               </p>
             </div>
           </div>
           
-          <label className="cursor-pointer bg-[#dfee53] hover:bg-[#c9d846] text-[#084c20] font-display text-xl py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl uppercase tracking-wide">
+          <label className="cursor-pointer bg-[#dfee53] hover:bg-[#c9d846] text-[#084c20] font-display text-xl py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl uppercase tracking-wide shrink-0">
             <UploadCloud className="w-6 h-6" />
             <span>Importar Dados</span>
             <input 
@@ -145,7 +145,7 @@ export function Animals() {
                 key={i} 
                 className="flex flex-col items-center justify-center text-center group min-w-[280px] md:min-w-[320px] snap-center shrink-0 bg-white shadow-xl rounded-[2.5rem] p-8 border-4 border-transparent hover:border-[#dfee53] transition-all duration-300"
               >
-                <div className="relative w-44 h-44 flex items-center justify-center mb-8">
+                <div className="relative w-64 h-64 flex items-center justify-center mb-8">
                   <div className="absolute inset-0 bg-neutral-100/80 rounded-full scale-100 border-8 border-white shadow-inner" />
                   
                   <div className="absolute inset-0 z-0">

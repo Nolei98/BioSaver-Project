@@ -9,7 +9,7 @@ export function MathExplanation() {
         <div className="md:w-1/3 flex justify-center relative">
             <div className="bg-[#e52026] text-white p-10 rounded-full flex items-center justify-center w-full aspect-square shadow-xl transform -rotate-3 text-center border-4 border-dashed border-white ring-8 ring-[#e52026] z-10">
                 <h2 className="text-4xl md:text-5xl font-display uppercase tracking-tight leading-[0.9]">
-                  A Situação <br/>das Espécies Brasileiras
+                  Aplicação <br/>Matemática
                 </h2>
             </div>
         </div>
