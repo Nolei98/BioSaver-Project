@@ -16,7 +16,8 @@ export function Gallery() {
     {
       src: "https://i1-e.pinimg.com/1200x/60/87/ae/6087aec3695d597bb1b2ca25a172b16d.jpg",
       alt: "Mico Leão Dourado",
-      className: "w-[80%] max-w-[260px] md:max-w-none md:w-[40%] lg:w-[28%] aspect-[3/4] -rotate-12 md:absolute md:bottom-20 md:left-4 z-20",
+      className: "w-[80%] max-w-[260px] md:max-w-none md:w-[40%] lg:w-[28%] aspect-[3/4] -rotate-12 md:absolute md:-bottom-12 md:left-4 z-30",
+      imageClass: "object-top"
     },
     {
       src: "https://i.pinimg.com/736x/46/b7/84/46b784e843894f14c7fcd5be85e9d758.jpg",
@@ -26,12 +27,12 @@ export function Gallery() {
     {
       src: "https://i.pinimg.com/736x/75/7b/cb/757bcbdd423291a4c342128bced480ac.jpg",
       alt: "Tucano",
-      className: "w-[85%] max-w-[310px] md:max-w-none md:w-[42%] lg:w-[28%] aspect-square -rotate-6 md:absolute md:bottom-5 md:right-12 z-30",
+      className: "w-[85%] max-w-[310px] md:max-w-none md:w-[42%] lg:w-[28%] aspect-square -rotate-6 md:absolute md:bottom-12 md:right-12 z-30",
     },
     {
       src: "https://i1-e.pinimg.com/1200x/e8/8f/c6/e88fc6343dc1efefc10b440e4b1781a0.jpg",
       alt: "Sagui",
-      className: "w-[75%] max-w-[220px] md:max-w-none md:w-[25%] lg:w-[15%] aspect-[3/4] rotate-12 md:absolute md:-top-10 md:-left-10 z-50",
+      className: "w-[75%] max-w-[220px] md:max-w-none md:w-[25%] lg:w-[16%] aspect-[3/4] rotate-12 md:absolute md:-top-24 md:-right-4 z-[70]",
     },
     {
       src: "https://i1-e.pinimg.com/736x/ce/16/3e/ce163e071643f155a7c2b235a525e2d8.jpg",
@@ -41,10 +42,12 @@ export function Gallery() {
   ];
 
   return (
-    <section className="bg-[#1e4a86] py-24 md:py-48 px-4 overflow-hidden relative border-b-[12px] border-[#fbaf00]">
+    <section className="bg-[#1e4a86] py-24 md:py-48 px-4 relative">
       {/* Background Decor */}
-      <div className="absolute inset-0 bg-[#153461] opacity-50 mix-blend-multiply pointer-events-none" />
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1b437e] transform skew-x-12 translate-x-10 opacity-30" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-[#153461] opacity-50 mix-blend-multiply" />
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#1b437e] transform skew-x-12 translate-x-10 opacity-30" />
+      </div>
       
       <div className="max-w-7xl mx-auto flex flex-col items-center justify-center relative md:h-[750px] z-10">
         

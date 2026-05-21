@@ -64,7 +64,7 @@ export function About() {
         </motion.div>
       </div>
 
-      <div className="bg-[#fbaf00] w-full p-10 md:p-16 flex flex-col md:flex-row items-center justify-center text-center gap-8 md:gap-16 relative">
+      <div className="bg-[#fbaf00] w-full p-10 md:p-16 flex flex-col md:flex-row items-center justify-center text-center gap-8 md:gap-16 relative border-b-[12px] border-[#084c20]">
          <motion.div 
            initial={{ scale: 0 }}
            whileInView={{ scale: 1 }}

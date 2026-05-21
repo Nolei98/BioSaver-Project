@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 export function MathExplanation() {
   return (
-    <section id="math" className="bg-white py-24 border-b-[8px] border-[#084c20]">
+    <section id="math" className="bg-white py-24 border-b-[12px] border-[#084c20]">
       <div className="max-w-6xl mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center gap-16">
         
         <div className="md:w-1/3 flex justify-center relative">

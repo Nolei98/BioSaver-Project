@@ -55,7 +55,7 @@ export function Calculator() {
   };
 
   return (
-    <section id="calculator" className="bg-[#084c20] py-24 border-b-[20px] border-[#fbaf00]">
+    <section id="calculator" className="bg-[#084c20] py-24 border-b-[16px] border-[#fbaf00]">
       <div className="max-w-6xl mx-auto px-4 md:px-10">
         
         <div className="text-center mb-16">
