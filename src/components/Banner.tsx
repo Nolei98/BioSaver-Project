@@ -6,8 +6,18 @@ export function Banner() {
     <section className="relative w-full bg-[#dfee53] flex flex-col items-center text-center pt-16 pb-12 border-b-[6px] border-[#084c20]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full relative">
         <div className="flex items-center justify-center gap-4 mb-6 text-[#1e4a86]">
-          <Bird className="w-16 h-16 md:w-24 md:h-24 fill-current stroke-[1.5]" />
-          <Bird className="w-16 h-16 md:w-24 md:h-24 fill-current stroke-[1.5] scale-x-[-1]" />
+          <motion.div
+            animate={{ y: [0, -15, 0], rotate: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
+            <Bird className="w-16 h-16 md:w-24 md:h-24 fill-current stroke-[1.5]" />
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5, delay: 0.2, ease: "easeInOut" }}
+          >
+            <Bird className="w-16 h-16 md:w-24 md:h-24 fill-current stroke-[1.5] scale-x-[-1]" />
+          </motion.div>
         </div>
 
         <motion.h1 
