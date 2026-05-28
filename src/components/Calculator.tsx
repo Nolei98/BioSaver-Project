@@ -1,22 +1,25 @@
 import { useState } from "react";
-import Markdown from "react-markdown";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
 import { Calculator as CalculatorIcon, ArrowRight, Loader2, Info } from "lucide-react";
 import { motion } from "motion/react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+
+const speciesOptions = [
+  { name: "Arara-Azul", r: 0.08 },
+  { name: "Onça-Pintada", r: 0.05 },
+  { name: "Orangotango-de-Sumatra", r: 0.04 },
+  { name: "Tigre-de-Sumatra", r: 0.06 },
+  { name: "Gorila-Oriental", r: 0.03 },
+];
 
 export function Calculator() {
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<string | null>(null);
+  const [resultData, setResultData] = useState<{ year: number, pop: number }[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
-    species: "",
-    biome: "Amazônia",
+    species: speciesOptions[0].name,
     currentPop: "",
     targetPop: "",
-    carryingCapacity: "",
-    growthRate: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -27,31 +30,52 @@ export function Calculator() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    setResult(null);
+    setResultData(null);
 
     setTimeout(() => {
       document.getElementById('calculator-results')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
 
-    try {
-      const response = await fetch("/api/simulate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    // Simulando delay para UI realista
+    setTimeout(() => {
+      try {
+        const r = speciesOptions.find(s => s.name === formData.species)?.r || 0.05;
+        const P0 = parseInt(formData.currentPop);
+        const K = parseInt(formData.targetPop);
 
-      const data = await response.json();
+        if (isNaN(P0) || isNaN(K) || P0 < 0 || K <= 0) {
+          throw new Error("Por favor, insira valores válidos para as populações.");
+        }
 
-      if (!response.ok) {
-        throw new Error(data.error || "Ocorreu um erro no servidor.");
+        if (P0 >= K) {
+          throw new Error("A População Inicial já é maior ou igual à Quantidade Limite.");
+        }
+
+        const data: { year: number, pop: number }[] = [];
+        let P = P0;
+        let year = 0;
+
+        data.push({ year, pop: Math.round(P) });
+
+        // Calculando de acordo com Euler
+        while (Math.round(P) < K && year < 10000) {
+          const dPdt = r * P * (1 - (P / K));
+          P = P + dPdt;
+          year++;
+          data.push({ year, pop: Math.round(P) });
+          
+          if (dPdt <= 0) {
+             throw new Error("A simulação estagnou. Verifique os parâmetros.");
+          }
+        }
+
+        setResultData(data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
-
-      setResult(data.result);
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
+    }, 1200);
   };
 
   return (
@@ -83,42 +107,22 @@ export function Calculator() {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]">Espécie</label>
-                  <input required name="species" type="text" placeholder="Ex: Onça-Pintada" value={formData.species} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-bold placeholder:font-medium placeholder:text-neutral-300 transition-all font-sans" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]">Bioma</label>
-                  <select required name="biome" value={formData.biome} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-bold transition-all font-sans">
-                    <option value="Amazônia">Amazônia</option>
-                    <option value="Cerrado">Cerrado</option>
-                    <option value="Mata Atlântica">Mata Atlântica</option>
-                    <option value="Caatinga">Caatinga</option>
-                    <option value="Pantanal">Pantanal</option>
-                    <option value="Pampa">Pampa</option>
+                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]">Seleção da Espécie</label>
+                  <select required name="species" value={formData.species} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-bold transition-all font-sans">
+                    {speciesOptions.map((s) => (
+                       <option key={s.name} value={s.name}>{s.name} (r={s.r})</option>
+                    ))}
                   </select>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-lg font-display uppercase tracking-widest text-[#084c20]" title="População Atual (P0)">Pop Atual</label>
-                    <input required name="currentPop" type="number" min="1" placeholder="Ex: 50" value={formData.currentPop} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-mono font-bold transition-all" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-lg font-display uppercase tracking-widest text-[#084c20]" title="População Alvo">Pop Alvo</label>
-                    <input required name="targetPop" type="number" min="1" placeholder="Ex: 200" value={formData.targetPop} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-mono font-bold transition-all" />
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]" title="População Atual (P0)">População Inicial (P)</label>
+                  <input required name="currentPop" type="number" min="1" placeholder="Ex: 50" value={formData.currentPop} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-mono font-bold transition-all" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]" title="Capacidade de Suporte do Bioma">Cap. Suporte ($K$)</label>
-                  <input required name="carryingCapacity" type="number" min="1" placeholder="Ex: 500" value={formData.carryingCapacity} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-mono font-bold transition-all" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]" title="Taxa de Crescimento Populacional">Taxa Cresc. ($r$)</label>
-                  <input required name="growthRate" type="number" step="0.001" placeholder="Ex: 0.15" value={formData.growthRate} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-mono font-bold transition-all" />
+                  <label className="text-lg font-display uppercase tracking-widest text-[#084c20]" title="População Alvo">Quantidade Limite (K)</label>
+                  <input required name="targetPop" type="number" min="1" placeholder="Ex: 1000" value={formData.targetPop} onChange={handleChange} className="w-full bg-white border-4 border-[#084c20] text-neutral-900 px-4 py-3 text-lg focus:outline-none focus:ring-none font-mono font-bold transition-all" />
                 </div>
 
                 <button disabled={loading} type="submit" className="w-full mt-6 bg-[#ee3e24] hover:bg-[#1e4a86] text-white font-display py-4 flex items-center justify-center gap-3 transition-colors disabled:opacity-50 text-2xl uppercase tracking-wider">
@@ -154,7 +158,7 @@ export function Calculator() {
               </motion.div>
             )}
 
-            {!result && !loading && !error && (
+            {!resultData && !loading && !error && (
               <div className="flex-1 flex flex-col items-center justify-center text-center p-12 bg-[#0c5928] border-8 border-dashed border-[#116e33] text-[#dfee53]">
                 <CalculatorIcon className="w-24 h-24 mb-6 opacity-50" />
                 <h3 className="font-display text-4xl mb-4 uppercase tracking-normal">Aguardando Execução</h3>
@@ -168,33 +172,59 @@ export function Calculator() {
                <div className="flex-1 flex flex-col items-center justify-center text-center p-12 bg-white text-[#084c20] border-t-8 border-[#1e4a86]">
                  <Loader2 className="w-24 h-24 animate-spin text-[#1e4a86] mb-8" />
                  <h3 className="font-display text-5xl uppercase tracking-tight">Separando Variáveis...</h3>
-                 <p className="font-sans font-bold mt-4 text-xl opacity-70">Executando integrais utilizando inteligência Gemini AI Engine.</p>
+                 <p className="font-sans font-bold mt-4 text-xl opacity-70">Executando o Método de Euler na matriz logística.</p>
                </div>
             )}
 
-            {result && (
+            {resultData && (
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white p-10 md:p-14 h-full flex flex-col border-t-8 border-[#9862a9] text-[#084c20]"
+                className="bg-white p-6 md:p-10 h-full flex flex-col border-t-8 border-[#9862a9] text-[#084c20]"
               >
-                <div className="prose prose-xl max-w-none 
-                  prose-headings:font-display prose-headings:tracking-normal prose-headings:uppercase
-                  prose-h2:text-[#1e4a86] prose-h2:pb-4 prose-h2:border-b-4 prose-h2:border-[#fbaf00] prose-h2:text-4xl prose-h2:mt-12
-                  prose-h3:text-[#084c20] prose-h3:text-3xl
-                  prose-p:leading-relaxed prose-p:font-bold prose-p:font-sans
-                  prose-li:font-bold prose-li:font-sans
-                  prose-strong:text-[#1e4a86] prose-strong:font-black
-                  prose-code:text-[#ee3e24] prose-code:font-mono prose-code:font-bold prose-code:bg-neutral-100 prose-code:p-1">
-                  <Markdown
-                    remarkPlugins={[remarkMath]}
-                    rehypePlugins={[rehypeKatex]}
-                    components={{
-                      h2: ({node, ...props}) => <h2 className="first:mt-0" {...props} />
-                    }}
-                  >
-                    {result}
-                  </Markdown>
+                <div className="flex-1 flex flex-col">
+                  <h3 className="font-display text-4xl mb-8 uppercase text-center text-[#1e4a86]">Projeção Populacional</h3>
+                  
+                  <div className="w-full h-[400px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart data={resultData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+                        <XAxis 
+                          dataKey="year" 
+                          label={{ value: 'Tempo (Anos)', position: 'bottom', offset: 0, fill: '#6b7280', fontWeight: 'bold' }} 
+                          tick={{ fill: '#6b7280', fontWeight: 'bold' }}
+                          axisLine={{ stroke: '#9ca3af' }}
+                          tickLine={{ stroke: '#9ca3af' }}
+                        />
+                        <YAxis 
+                          label={{ value: 'Quantidade de Animais', angle: -90, position: 'insideLeft', offset: -10, fill: '#6b7280', fontWeight: 'bold' }} 
+                          tick={{ fill: '#6b7280', fontWeight: 'bold' }}
+                          axisLine={{ stroke: '#9ca3af' }}
+                          tickLine={{ stroke: '#9ca3af' }}
+                        />
+                        <Tooltip 
+                           contentStyle={{ fontWeight: "bold", borderRadius: "8px", border: "4px solid #1e4a86", color: "#1e4a86" }}
+                           labelStyle={{ color: "#084c20", marginBottom: "4px" }}
+                           formatter={(value) => [`${value} animais`, "População"]}
+                           labelFormatter={(label) => `Ano: ${label}`}
+                        />
+                        <Line 
+                          type="monotone" 
+                          dataKey="pop" 
+                          stroke="#e52026" 
+                          strokeWidth={4} 
+                          dot={false}
+                          activeDot={{ r: 8, fill: "#fbaf00", stroke: "#e52026", strokeWidth: 3 }}
+                        />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </div>
+
+                  <div className="mt-8 p-6 bg-[#dfee53] border-l-8 border-[#084c20] text-[#084c20]">
+                    <p className="text-xl font-sans font-bold leading-tight">
+                      Para chegar ao limite de animais para reintrodução, serão necessários {resultData.length - 1} anos.
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             )}
