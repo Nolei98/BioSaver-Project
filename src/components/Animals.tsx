@@ -82,7 +82,7 @@ export function Animals() {
           <div className="text-center md:text-left flex flex-col md:flex-row items-center gap-6 md:gap-10">
             <div className="bg-[#e52026] text-white p-6 rounded-full w-48 h-48 shrink-0 flex items-center justify-center text-center shadow-xl transform -rotate-6 border-4 border-dashed border-white ring-8 ring-[#e52026]">
                 <h2 className="text-2xl font-display uppercase tracking-tight leading-[1.1]">
-                  A Situação <br/>das Espécies <br/> Brasileiras
+                  A Situação <br/>das Espécies <br/> Ameaçadas
                 </h2>
             </div>
             <div className="hidden md:block">

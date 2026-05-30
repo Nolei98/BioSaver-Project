@@ -1,6 +1,6 @@
 {
   "name": "BioSaver",
-  "description": "Plataforma open-source para cálculo e simulação de reinserção de espécies em biomas da América do Sul usando Modelagem Matemática e IA.",
+  "description": "Plataforma open-source para cálculo e simulação de reinserção de espécies ameaçadas de extinção ao redor do mundo usando Modelagem Matemática.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

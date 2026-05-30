@@ -4,11 +4,11 @@ import { motion } from "motion/react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const speciesOptions = [
-  { name: "Arara-Azul", r: 0.08 },
-  { name: "Onça-Pintada", r: 0.05 },
-  { name: "Orangotango-de-Sumatra", r: 0.04 },
-  { name: "Tigre-de-Sumatra", r: 0.06 },
-  { name: "Gorila-Oriental", r: 0.03 },
+  { name: "Arara-Azul", r: 0.25 },
+  { name: "Onça-Pintada", r: 0.15 },
+  { name: "Orangotango-de-Sumatra", r: 0.10 },
+  { name: "Tigre-de-Sumatra", r: 0.18 },
+  { name: "Gorila-Oriental", r: 0.10 },
 ];
 
 export function Calculator() {

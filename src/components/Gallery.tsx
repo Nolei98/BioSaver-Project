@@ -3,10 +3,10 @@ import { motion } from "motion/react";
 export function Gallery() {
   const images = [
     {
-      src: "https://i1-e.pinimg.com/736x/e3/23/a1/e323a1cd62fa02c4df2b287357e867d0.jpg",
-      alt: "Arara Azul",
+      src: "https://upload.wikimedia.org/wikipedia/commons/6/62/Panthera_tigris_sumatran_subspecies.jpg",
+      alt: "Tigre de Sumatra",
       className: "w-[85%] max-w-[280px] md:max-w-none md:w-[40%] lg:w-[30%] aspect-[3/4] -rotate-6 md:absolute md:top-10 md:left-10 z-20",
-      imageClass: "object-top"
+      imageClass: "object-center"
     },
     {
       src: "https://i1-e.pinimg.com/1200x/0e/cc/c2/0eccc24d7071200527f83ad205431444.jpg",
@@ -14,20 +14,22 @@ export function Gallery() {
       className: "w-[90%] max-w-[320px] md:max-w-none md:w-[50%] lg:w-[35%] aspect-square rotate-3 md:absolute md:top-24 md:right-10 z-30",
     },
     {
-      src: "https://i1-e.pinimg.com/1200x/60/87/ae/6087aec3695d597bb1b2ca25a172b16d.jpg",
-      alt: "Mico Leão Dourado",
+      src: "https://static.wikia.nocookie.net/reinoanimalia/images/1/11/Gorila_Oriental.png/revision/latest?cb=20200426233658&path-prefix=es",
+      alt: "Gorila Oriental",
       className: "w-[80%] max-w-[260px] md:max-w-none md:w-[40%] lg:w-[28%] aspect-[3/4] -rotate-12 md:absolute md:-bottom-12 md:left-4 z-30",
       imageClass: "object-top"
     },
     {
-      src: "https://i.pinimg.com/736x/46/b7/84/46b784e843894f14c7fcd5be85e9d758.jpg",
-      alt: "Tartaruga Marinha",
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Orang_Utan%2C_Semenggok_Forest_Reserve%2C_Sarawak%2C_Borneo%2C_Malaysia.JPG/500px-Orang_Utan%2C_Semenggok_Forest_Reserve%2C_Sarawak%2C_Borneo%2C_Malaysia.JPG",
+      alt: "Orangotango",
       className: "w-[95%] max-w-[340px] md:max-w-none md:w-[45%] lg:w-[32%] aspect-[16/9] rotate-6 md:absolute md:bottom-44 md:right-[38%] z-10",
+      imageClass: "object-center"
     },
     {
-      src: "https://i.pinimg.com/736x/75/7b/cb/757bcbdd423291a4c342128bced480ac.jpg",
-      alt: "Tucano",
+      src: "https://i1-e.pinimg.com/736x/e3/23/a1/e323a1cd62fa02c4df2b287357e867d0.jpg",
+      alt: "Arara Azul",
       className: "w-[85%] max-w-[310px] md:max-w-none md:w-[42%] lg:w-[28%] aspect-square -rotate-6 md:absolute md:bottom-12 md:right-12 z-30",
+      imageClass: "object-[center_20%]"
     },
     {
       src: "https://i1-e.pinimg.com/1200x/e8/8f/c6/e88fc6343dc1efefc10b440e4b1781a0.jpg",
@@ -35,14 +37,14 @@ export function Gallery() {
       className: "w-[75%] max-w-[220px] md:max-w-none md:w-[25%] lg:w-[16%] aspect-[3/4] rotate-12 md:absolute md:-top-24 md:-right-4 z-[70]",
     },
     {
-      src: "https://i1-e.pinimg.com/736x/ce/16/3e/ce163e071643f155a7c2b235a525e2d8.jpg",
-      alt: "Lobo Guará",
+      src: "https://i.pinimg.com/736x/46/b7/84/46b784e843894f14c7fcd5be85e9d758.jpg",
+      alt: "Tartaruga Marinha",
       className: "w-[90%] max-w-[300px] md:max-w-none md:w-[35%] lg:w-[25%] aspect-[3/4] -rotate-3 md:absolute md:top-10 md:right-[40%] z-0",
     }
   ];
 
   return (
-    <section className="bg-[#102c5c] pt-24 md:pt-48 pb-24 md:pb-52 px-4 relative mb-[10px]">
+    <section className="bg-[#102c5c] pt-24 md:pt-48 pb-24 md:pb-52 px-4 relative">
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none transform -translate-y-[99%] z-20 pointer-events-none">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[100px] fill-[#102c5c]">
           <path d="M0,120 V40 L15,60 L25,30 L40,70 L60,20 L80,80 L100,40 L115,65 L140,25 L160,75 L180,35 L200,90 L220,20 L245,75 L260,30 L285,85 L310,25 L330,70 L350,15 L375,65 L390,30 L415,90 L435,35 L460,80 L485,25 L510,75 L535,30 L560,90 L580,20 L605,75 L620,35 L645,90 L665,25 L690,70 L710,15 L735,65 L760,30 L785,85 L810,25 L830,70 L850,20 L875,75 L890,30 L915,90 L935,35 L960,80 L985,25 L1010,75 L1035,30 L1060,90 L1080,20 L1105,75 L1120,35 L1145,90 L1165,25 L1190,70 L1200,40 V120 Z" />
@@ -62,7 +64,7 @@ export function Gallery() {
             Galeria de <span className="text-[#dfee53]">Espécies</span>
           </h2>
           <p className="text-white/90 text-lg md:text-xl font-bold font-sans max-w-md mx-auto">
-            A beleza do nosso bioma que precisamos salvar através da tecnologia e união.
+            A beleza da fauna mundial que precisamos salvar através da tecnologia e união.
           </p>
         </div>
 

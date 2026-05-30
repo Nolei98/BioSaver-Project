@@ -35,8 +35,11 @@ export function Footer() {
          <h2 className="font-display text-2xl md:text-3xl text-[#dfee53] uppercase tracking-wide mb-1 relative z-10">
            Capstone - Cálculo 2
          </h2>
-         <p className="font-sans font-bold text-white text-lg md:text-xl opacity-90 mb-6 relative z-10">
+         <p className="font-sans font-bold text-white text-lg md:text-xl opacity-90 mb-1 relative z-10">
            Cohort 0725 - Jala University
+         </p>
+         <p className="font-sans font-medium text-white/80 text-base md:text-lg mb-6 relative z-10">
+           Primeiro Semestre - 2026
          </p>
          
          <div className="flex flex-wrap justify-center gap-3 relative z-10">

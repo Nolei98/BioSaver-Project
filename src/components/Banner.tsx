@@ -73,7 +73,7 @@ export function Banner() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-2xl text-[#084c20] max-w-3xl mx-auto font-medium leading-snug mb-8"
         >
-          O retorno à natureza é um <strong className="font-black">processo vital</strong> que movimenta forças para regenerar o mundo. Em nosso levantamento baseado no ecossistema brasileiro, das mais de 16.000 espécies avaliadas, <strong>3.289 encontram-se ameaçadas de extinção</strong>. A matemática traz estimativas claras sobre a conservação para colocá-las a salvo.
+          O retorno à natureza é um <strong className="font-black">processo vital</strong> que movimenta forças para regenerar o mundo. Em nosso levantamento baseado no ecossistema global, de milhares de espécies avaliadas, <strong>inúmeras encontram-se ameaçadas de extinção</strong>. A matemática traz estimativas claras sobre a conservação para colocá-las a salvo.
         </motion.p>
       </div>
     </section>
