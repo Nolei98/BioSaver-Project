@@ -39,7 +39,7 @@ export function Footer() {
            Cohort 0725 - Jala University
          </p>
          <p className="font-sans font-medium text-white/80 text-base md:text-lg mb-6 relative z-10">
-           Primeiro Semestre - 2026
+           Primeiro semestre de 2026
          </p>
          
          <div className="flex flex-wrap justify-center gap-3 relative z-10">
