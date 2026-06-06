@@ -86,7 +86,7 @@ export function Calculator() {
           <div className="inline-block bg-[#1e4a86] text-white px-6 py-2 uppercase tracking-tight text-2xl font-display mb-4 shadow-xl">
             Simulador Engine
           </div>
-          <h2 className="text-5xl md:text-7xl font-display text-[#dfee53] uppercase tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-display text-[#dde7b3] uppercase tracking-tight">
             Faça o Cálculo
           </h2>
         </div>
@@ -99,7 +99,7 @@ export function Calculator() {
             viewport={{ once: true }}
             className="lg:col-span-12 xl:col-span-4 space-y-6"
           >
-            <div className="bg-[#dfee53] p-8 md:p-10 shadow-xl text-[#084c20] border-t-8 border-[#1e4a86]">
+            <div className="bg-[#dde7b3] p-8 md:p-10 shadow-xl text-[#084c20] border-t-8 border-[#1e4a86]">
               <div className="flex items-center gap-3 mb-8">
                 <CalculatorIcon className="w-10 h-10 text-[#084c20]" />
                 <h3 className="font-display text-4xl uppercase tracking-wider">Parâmetros</h3>
@@ -159,7 +159,7 @@ export function Calculator() {
             )}
 
             {!resultData && !loading && !error && (
-              <div className="flex-1 flex flex-col items-center justify-center text-center p-12 bg-[#0c5928] border-8 border-dashed border-[#116e33] text-[#dfee53]">
+              <div className="flex-1 flex flex-col items-center justify-center text-center p-12 bg-[#0c5928] border-8 border-dashed border-[#116e33] text-[#dde7b3]">
                 <CalculatorIcon className="w-24 h-24 mb-6 opacity-50" />
                 <h3 className="font-display text-4xl mb-4 uppercase tracking-normal">Aguardando Execução</h3>
                 <p className="text-xl max-w-lg font-sans font-bold opacity-80 leading-snug">
@@ -220,7 +220,7 @@ export function Calculator() {
                     </ResponsiveContainer>
                   </div>
 
-                  <div className="mt-8 p-6 bg-[#dfee53] border-l-8 border-[#084c20] text-[#084c20]">
+                  <div className="mt-8 p-6 bg-[#dde7b3] border-l-8 border-[#084c20] text-[#084c20]">
                     <p className="text-xl font-sans font-bold leading-tight">
                       Para chegar ao limite de animais para reintrodução, serão necessários {resultData.length - 1} anos.
                     </p>

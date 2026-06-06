@@ -92,7 +92,7 @@ export function Animals() {
             </div>
           </div>
           
-          <label className="cursor-pointer bg-[#dfee53] hover:bg-[#c9d846] text-[#084c20] font-display text-xl py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl uppercase tracking-wide shrink-0">
+          <label className="cursor-pointer bg-[#dde7b3] hover:bg-[#c9d846] text-[#084c20] font-display text-xl py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl uppercase tracking-wide shrink-0">
             <UploadCloud className="w-6 h-6" />
             <span>Importar Dados</span>
             <input 
@@ -107,7 +107,7 @@ export function Animals() {
         <div className="relative mt-8 w-full group/slider flex items-center justify-center">
           <button 
             onClick={() => scroll("left")}
-            className="hidden md:flex shrink-0 w-20 h-20 mr-6 -ml-16 bg-[#dfee53] rounded-full shadow-2xl items-center justify-center z-30 text-[#084c20] hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-white border-4 border-[#084c20]"
+            className="hidden md:flex shrink-0 w-20 h-20 mr-6 -ml-16 bg-[#dde7b3] rounded-full shadow-2xl items-center justify-center z-30 text-[#084c20] hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-white border-4 border-[#084c20]"
           >
             <ChevronLeft className="w-12 h-12 -ml-1" />
           </button>
@@ -140,7 +140,7 @@ export function Animals() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, ease: "easeOut" }}
                 key={i} 
-                className="flex flex-col items-center justify-center text-center group min-w-[280px] md:min-w-[320px] snap-center shrink-0 bg-white shadow-xl rounded-[2.5rem] p-8 border-4 border-transparent hover:border-[#dfee53] transition-all duration-300"
+                className="flex flex-col items-center justify-center text-center group min-w-[280px] md:min-w-[320px] snap-center shrink-0 bg-white shadow-xl rounded-[2.5rem] p-8 border-4 border-transparent hover:border-[#dde7b3] transition-all duration-300"
               >
                 <div className="relative w-64 h-64 flex items-center justify-center mb-8">
                   <div className="absolute inset-0 bg-neutral-100/80 rounded-full scale-100 border-8 border-white shadow-inner" />
@@ -199,7 +199,7 @@ export function Animals() {
           
           <button 
             onClick={() => scroll("right")}
-            className="hidden md:flex shrink-0 w-20 h-20 ml-6 -mr-16 bg-[#dfee53] rounded-full shadow-2xl items-center justify-center z-30 text-[#084c20] hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-white border-4 border-[#084c20]"
+            className="hidden md:flex shrink-0 w-20 h-20 ml-6 -mr-16 bg-[#dde7b3] rounded-full shadow-2xl items-center justify-center z-30 text-[#084c20] hover:scale-110 transition-all focus:outline-none focus:ring-4 focus:ring-white border-4 border-[#084c20]"
           >
             <ChevronRight className="w-12 h-12 ml-1" />
           </button>

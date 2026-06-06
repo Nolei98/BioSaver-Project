@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 export function Footer() {
   return (
-    <footer className="relative z-50 bg-[#054a1a] text-center pt-16 border-t-[10px] border-[#dfee53] pb-16 px-4 flex flex-col items-center justify-center">
+    <footer className="relative z-50 bg-[#054a1a] text-center pt-16 border-t-[10px] border-[#dde7b3] pb-16 px-4 flex flex-col items-center justify-center">
       <motion.div
         className="relative"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -25,14 +25,14 @@ export function Footer() {
           transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", repeatDelay: 1.5 }}
         />
       </motion.div>
-      <h1 className="font-display text-5xl md:text-6xl text-[#dfee53] uppercase tracking-normal mb-8">
+      <h1 className="font-display text-5xl md:text-6xl text-[#dde7b3] uppercase tracking-normal mb-8">
         Projeto<br/>BioSaver
       </h1>
       
-      <div className="bg-[#088c34] p-8 rounded-[2.5rem] w-full max-w-3xl flex flex-col items-center border-[6px] border-[#dfee53]/20 shadow-2xl relative overflow-hidden">
-         <div className="absolute top-0 right-0 w-32 h-32 bg-[#dfee53]/10 transform rotate-45 translate-x-10 -translate-y-10 rounded-3xl pointer-events-none" />
+      <div className="bg-[#088c34] p-8 rounded-[2.5rem] w-full max-w-3xl flex flex-col items-center border-[6px] border-[#dde7b3]/20 shadow-2xl relative overflow-hidden">
+         <div className="absolute top-0 right-0 w-32 h-32 bg-[#dde7b3]/10 transform rotate-45 translate-x-10 -translate-y-10 rounded-3xl pointer-events-none" />
          
-         <h2 className="font-display text-2xl md:text-3xl text-[#dfee53] uppercase tracking-wide mb-1 relative z-10">
+         <h2 className="font-display text-2xl md:text-3xl text-[#dde7b3] uppercase tracking-wide mb-1 relative z-10">
            Capstone - Cálculo 2
          </h2>
          <p className="font-sans font-bold text-white text-lg md:text-xl opacity-90 mb-1 relative z-10">

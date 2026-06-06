@@ -90,9 +90,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#dfee53] font-sans selection:bg-[#1e4a86] selection:text-white pb-0 relative">
+    <div className="min-h-screen bg-[#dde7b3] font-sans selection:bg-[#1e4a86] selection:text-white pb-0 relative">
       <div className="fixed inset-0 pointer-events-none opacity-[0.04] mix-blend-multiply z-50" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cubes.png')" }} />
-      <div className="hidden md:block fixed inset-y-0 left-0 w-[14px] bg-[#dfee53] z-[100] pointer-events-none" />
+      <div className="hidden md:block fixed inset-y-0 left-0 w-[14px] bg-[#dde7b3] z-[100] pointer-events-none" />
       
       {/* Floating Presentation Button */}
       <button 

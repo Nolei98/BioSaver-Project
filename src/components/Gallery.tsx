@@ -61,7 +61,7 @@ export function Gallery() {
         
         <div className="text-center md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-40 bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[3rem] border border-white/20 shadow-2xl">
           <h2 className="text-5xl md:text-7xl font-display text-white uppercase tracking-tight mb-4">
-            Galeria de <span className="text-[#dfee53]">Espécies</span>
+            Galeria de <span className="text-[#dde7b3]">Espécies</span>
           </h2>
           <p className="text-white/90 text-lg md:text-xl font-bold font-sans max-w-md mx-auto">
             A beleza da fauna mundial que precisamos salvar através da tecnologia e união.
