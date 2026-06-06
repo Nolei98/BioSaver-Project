@@ -8,6 +8,14 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+html, body {
+  cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M 0 0 C 12 0, 20 8, 20 20 C 8 20, 0 12, 0 0 Z" fill="%23084c20" stroke="%23ffffff" stroke-width="2"/><line x1="19" y1="19" x2="24" y2="24" stroke="%23084c20" stroke-width="3" stroke-linecap="round"/></svg>') 0 0, auto;
+}
+
+a, button, label, select, .cursor-pointer, [role="button"] {
+  cursor: url('data:image/svg+xml;utf8,<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><path d="M 0 0 C 12 0, 20 8, 20 20 C 8 20, 0 12, 0 0 Z" fill="%231e4a86" stroke="%23ffffff" stroke-width="2"/><line x1="19" y1="19" x2="24" y2="24" stroke="%231e4a86" stroke-width="3" stroke-linecap="round"/></svg>') 0 0, pointer !important;
+}
+
 ::-webkit-scrollbar {
   width: 14px;
 }
