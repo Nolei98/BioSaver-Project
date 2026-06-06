@@ -10,6 +10,12 @@ interface PresentationModalProps {
 export function PresentationModal({ isOpen, onClose }: PresentationModalProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  React.useEffect(() => {
+    if (isOpen) {
+      setCurrentSlide(0);
+    }
+  }, [isOpen]);
+
   // Array of image paths for the slides.
   // The user needs to upload these images to the 'public' folder using the File Explorer.
   const slides = [

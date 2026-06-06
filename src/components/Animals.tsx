@@ -1,6 +1,5 @@
-import React, { useState, useRef } from "react";
-import * as XLSX from "xlsx";
-import { UploadCloud, TriangleAlert, Database, Bird, Bug, Cat, Turtle, Fish, Leaf, Rabbit, Snail, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useRef } from "react";
+import { TriangleAlert, Database, Bird, Bug, Cat, Turtle, Fish, Leaf, Rabbit, Snail, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
@@ -13,33 +12,15 @@ interface AnimalData {
 }
 
 export function Animals() {
-  const [animals, setAnimals] = useState<AnimalData[]>([
-    { Especie: "Plantas", Bioma: "Terrestre", Risco: "Ameaçado", K: 4617, PopAtual: 2113 },
-    { Especie: "Mamíferos", Bioma: "Diversos", Risco: "Ameaçado", K: 732, PopAtual: 110 },
-    { Especie: "Aves", Bioma: "Aéreo/Terrestre", Risco: "Ameaçado", K: 1979, PopAtual: 236 },
-    { Especie: "Répteis", Bioma: "Diversos", Risco: "Ameaçado", K: 732, PopAtual: 80 },
-    { Especie: "Peixes Água Doce", Bioma: "Rios e Lagos", Risco: "Ameaçado", K: 3148, PopAtual: 312 },
-    { Especie: "Invertebrados", Bioma: "Diversos", Risco: "Ameaçado", K: 3332, PopAtual: 299 },
-    { Especie: "Peixes Marinhos", Bioma: "Oceano", Risco: "Ameaçado", K: 1358, PopAtual: 98 },
-    { Especie: "Anfíbios", Bioma: "Úmidos", Risco: "Ameaçado", K: 973, PopAtual: 41 },
-  ]);
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const data = new Uint8Array(event.target?.result as ArrayBuffer);
-      const workbook = XLSX.read(data, { type: "array" });
-      const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-      const parsedData = XLSX.utils.sheet_to_json<AnimalData>(firstSheet);
-      if (parsedData && parsedData.length > 0) {
-        setAnimals(parsedData);
-      }
-    };
-    reader.readAsArrayBuffer(file);
-  };
+  const animals: AnimalData[] = [
+    { Especie: "Plantas", Bioma: "Global", Risco: "Ameaçado", K: 62000, PopAtual: 25000 },
+    { Especie: "Mamíferos", Bioma: "Global", Risco: "Ameaçado", K: 5900, PopAtual: 1300 },
+    { Especie: "Aves", Bioma: "Global", Risco: "Ameaçado", K: 11000, PopAtual: 1400 },
+    { Especie: "Répteis", Bioma: "Global", Risco: "Ameaçado", K: 9000, PopAtual: 1600 },
+    { Especie: "Peixes", Bioma: "Global", Risco: "Ameaçado", K: 25000, PopAtual: 3600 },
+    { Especie: "Invertebrados", Bioma: "Global", Risco: "Ameaçado", K: 25000, PopAtual: 6000 },
+    { Especie: "Anfíbios", Bioma: "Global", Risco: "Ameaçado", K: 7400, PopAtual: 2400 },
+  ];
 
   const getWedgeColor = (index: number) => {
     const colors = ["#60c5a8", "#ffd700", "#b57edc", "#f0567a", "#42b9d3", "#7ac142", "#5494cc", "#f16a30"];
@@ -87,21 +68,10 @@ export function Animals() {
             </div>
             <div className="hidden md:block">
               <p className="font-sans font-bold text-neutral-600 outline-none text-xl max-w-sm">
-                Gráficos comparando a População Atual (em perigo) com a Capacidade total do Bioma.
+                Gráficos mostrando a proporção global de espécies em perigo em relação ao total avaliado no mundo.
               </p>
             </div>
           </div>
-          
-          <label className="cursor-pointer bg-[#dde7b3] hover:bg-[#c9d846] text-[#084c20] font-display text-xl py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-transform hover:scale-105 shadow-xl uppercase tracking-wide shrink-0">
-            <UploadCloud className="w-6 h-6" />
-            <span>Importar Dados</span>
-            <input 
-              type="file" 
-              accept=".xlsx,.xls,.csv" 
-              onChange={handleFileUpload} 
-              className="hidden" 
-            />
-          </label>
         </div>
 
         <div className="relative mt-8 w-full group/slider flex items-center justify-center">
