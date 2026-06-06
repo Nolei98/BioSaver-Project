@@ -51,25 +51,25 @@ export function PresentationModal({ isOpen, onClose }: PresentationModalProps) {
             className="w-full relative shadow-2xl shrink-0 rounded-lg overflow-hidden bg-[#E2EBCD]"
           >
             <div className="w-full h-full relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full h-full absolute inset-0 flex items-center justify-center"
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`w-full h-full absolute inset-0 flex items-center justify-center transition-all duration-300 ${
+                    index === currentSlide 
+                      ? 'opacity-100 z-10 scale-100' 
+                      : 'opacity-0 z-0 scale-[0.98] pointer-events-none'
+                  }`}
                 >
                   <img 
-                    src={slides[currentSlide]} 
-                    alt={`Slide ${currentSlide + 1}`} 
+                    src={slide} 
+                    alt={`Slide ${index + 1}`} 
                     className="w-full h-full object-contain"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://placehold.co/1920x1080/E2EBCD/2B4222?text=Slide+${currentSlide + 1}%5CnFa%C3%A7a+upload+do+arquivo+${currentSlide + 1}.jpg+na+pasta+public`;
+                      (e.target as HTMLImageElement).src = `https://placehold.co/1920x1080/E2EBCD/2B4222?text=Slide+${index + 1}%5CnFa%C3%A7a+upload+do+arquivo+${index + 1}.jpg+na+pasta+public`;
                     }}
                   />
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              ))}
             </div>
           </div>
           

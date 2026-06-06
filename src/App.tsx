@@ -53,35 +53,35 @@ export default function App() {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen bg-[#1e4a86] flex flex-col items-center justify-center font-sans text-white p-4">
+      <div className="min-h-screen bg-[#dde7b3] flex flex-col items-center justify-center font-sans text-[#2B4222] p-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center justify-center text-center max-w-sm w-full"
         >
-          <div className="bg-[#dfee53] p-4 rounded-2xl shadow-xl shadow-[#dfee53]/20 mb-8">
-            <Leaf className="w-16 h-16 text-[#1e4a86]" />
+          <div className="w-40 h-40 mb-8 rounded-full overflow-hidden flex items-center justify-center bg-white/20 shadow-lg p-2">
+            <img src="https://i.imgur.com/M5tnTxI.png" alt="BioSaver Logo" className="w-full h-full object-contain" />
           </div>
           
-          <h1 className="font-display text-4xl font-bold tracking-tight mb-2">EcoCalc Engine</h1>
-          <p className="text-white/70 mb-12 uppercase tracking-widest text-xs">Simulador de Conservação</p>
+          <h1 className="font-display text-4xl font-extrabold tracking-tight mb-2 text-[#1e4a86]">BioSaver</h1>
+          <p className="text-[#48593C] mb-12 uppercase tracking-widest text-xs font-bold">Simulador de Conservação</p>
           
           <div className="w-full relative">
-            <div className="flex justify-between text-sm mb-3 font-mono font-medium">
-              <span className="text-white/60">Carregando Modelo</span>
-              <span className="text-[#dfee53] drop-shadow-[0_0_8px_rgba(223,238,83,0.8)]">{loadingProgress}%</span>
+            <div className="flex justify-between text-sm mb-3 font-mono font-bold">
+              <span className="text-[#48593C]">Carregando projeto</span>
+              <span className="text-[#1e4a86]">{loadingProgress}%</span>
             </div>
-            <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-[#48593C]/10 rounded-full overflow-hidden">
               <motion.div 
-                className="h-full bg-[#dfee53] shadow-[0_0_12px_rgba(223,238,83,0.6)]"
+                className="h-full bg-[#1e4a86]"
                 initial={{ width: 0 }}
                 animate={{ width: `${loadingProgress}%` }}
                 transition={{ ease: "easeOut", duration: 0.2 }}
               />
             </div>
-            <div className="mt-8 text-center text-white/40 text-xs tracking-wider animate-pulse font-mono">
-              INICIALIZANDO SIMULAÇÃO...
+            <div className="mt-8 text-center text-[#48593C]/70 text-xs tracking-wider animate-pulse font-mono font-bold">
+              INICIANDO DADOS...
             </div>
           </div>
         </motion.div>
