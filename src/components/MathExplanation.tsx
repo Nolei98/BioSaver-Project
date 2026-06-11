@@ -47,7 +47,7 @@ export function MathExplanation() {
                </div>
                <div>
                   <h4 className="font-display text-2xl uppercase tracking-wider text-[#084c20]">O Fator Limitante</h4>
-                  <p className="text-neutral-600 font-medium">Garante que P(t) se estabilize em $K$ e não destrua o habitat.</p>
+                  <p className="text-neutral-600 font-medium">Garante que P(t) se estabilize em (K) e não destrua o habitat.</p>
                </div>
             </div>
           </div>

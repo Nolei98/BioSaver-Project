@@ -58,9 +58,9 @@ export function About() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="w-full md:w-1/2 bg-[#088c34] p-10 md:p-16 flex flex-col items-center justify-center text-center text-white relative overflow-hidden"
         >
-           <h3 className="text-5xl md:text-6xl font-display uppercase mb-4 text-[#dde7b3]">Foco Sul Americano</h3>
+           <h3 className="text-5xl md:text-6xl font-display uppercase mb-4 text-[#dde7b3]">Foco Global</h3>
            <p className="text-lg md:text-xl font-medium leading-relaxed max-w-sm">
-             É de responsabilidade do sistema prever a capacidade de suporte dos nossos biomas, da Amazônia aos Pampas.
+             É de responsabilidade do sistema prever a capacidade de suporte dos biomas de todo o planeta.
            </p>
         </motion.div>
       </div>
